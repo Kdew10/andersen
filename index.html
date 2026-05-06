@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Renewal by Andersen – Free Window Replacement Quote</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─────────────────────────────────────────
+       TOP DISCLAIMER BAR
+    ───────────────────────────────────────── */
+    .disclaimer-bar {
+  background-color: #2e2e2e;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px 20px;
+  line-height: 1.5;
+  width: 100%;          /* fills the panel width */
+  align-self: stretch;  /* stretches edge-to-edge inside the flex panel */
+}
+
+    /* ─────────────────────────────────────────
+       MAIN LAYOUT — background photos + center panel
+    ───────────────────────────────────────── */
+    .main-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      /* ─────────────────────────────────────────
+         BACKGROUND IMAGE LINK
+         Replace YOUR_BACKGROUND_IMAGE_URL_HERE with the full-width
+         kitchen/window photo used as the page background.
+      ───────────────────────────────────────── */
+      background: url('images/bga.webp') center/cover no-repeat;
+      background-color: #7a8a7a; /* fallback */
+    }
+
+    /* ─────────────────────────────────────────
+       CENTER PANEL
+    ───────────────────────────────────────── */
+    .panel {
+      background: #fff;
+      width: 600px;
+      max-width: 100%;
+      padding: 0 0 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─────────────────────────────────────────
+       LOGO
+    ───────────────────────────────────────── */
+    .logo-wrap {
+      padding: 22px 20px 10px;
+      text-align: center;
+    }
+
+    .logo-wrap img {
+      height: 52px;
+      width: auto;
+      /* ─────────────────────────────────────────
+         LOGO IMAGE LINK
+         Replace the src value with the Renewal by Andersen logo URL.
+      ───────────────────────────────────────── */
+    }
+
+    /* ─────────────────────────────────────────
+       PROMO BANNER IMAGE (20% OFF + person)
+    ───────────────────────────────────────── */
+    .promo-banner {
+      width: 100%;
+      position: relative;
+    }
+
+    .promo-banner img {
+      width: 100%;
+      display: block;
+      /* ─────────────────────────────────────────
+         PROMO BANNER IMAGE LINK
+         Replace the src value with the URL of the promotional banner
+         image (green circle with "20% OFF", the worker photo, and
+         the "SAVE NOW!" dark ribbon).
+      ───────────────────────────────────────── */
+    }
+
+    /* ─────────────────────────────────────────
+       SPECIAL FINANCING
+    ───────────────────────────────────────── */
+    .financing-text {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #222;
+      text-align: center;
+      padding: 18px 20px 10px;
+    }
+
+    /* ─────────────────────────────────────────
+       FORM HEADING
+    ───────────────────────────────────────── */
+    .form-heading {
+      font-size: 26px;
+      font-weight: 400;
+      color: #222;
+      text-align: center;
+      padding: 8px 30px 24px;
+      line-height: 1.3;
+    }
+
+    /* ─────────────────────────────────────────
+       STEP INDICATOR
+    ───────────────────────────────────────── */
+    .steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 18px;
+      width: 100%;
+      padding: 0 60px;
+    }
+
+    .step-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #ccc;
+      background: #fff;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .step-circle.active {
+      border-color: #5aab6e;
+      color: #5aab6e;
+    }
+
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: #ccc;
+    }
+
+    /* ─────────────────────────────────────────
+       FORM SECTION
+    ───────────────────────────────────────── */
+    .form-section {
+      width: 100%;
+      padding: 0 36px;
+    }
+
+    .form-question {
+      font-size: 14.5px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .zip-input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 15px;
+      border: 1.5px solid #999;
+      border-radius: 3px;
+      color: #555;
+      outline: none;
+      margin-bottom: 14px;
+    }
+
+    .zip-input:focus {
+      border-color: #5aab6e;
+    }
+
+    .zip-input::placeholder {
+      color: #aaa;
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      padding: 17px 10px;
+      background: #e86e1a;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: #c95c10;
+    }
+
+    /* ─────────────────────────────────────────
+       BADGE IMAGES
+    ───────────────────────────────────────── */
+    .badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 34px;
+      padding: 0 36px;
+    }
+
+    .badges img {
+      height: 80px;
+      width: auto;
+      /* ─────────────────────────────────────────
+         BADGE IMAGE LINKS
+         .badge-energystar → Replace src with Energy Star Partner badge URL
+         .badge-warranty   → Replace src with Fully Transferable Warranty badge URL
+      ───────────────────────────────────────── */
+    }
+
+    /* ─────────────────────────────────────────
+       LEGAL / FINE PRINT
+    ───────────────────────────────────────── */
+    .legal {
+      font-size: 9.5px;
+      color: #555;
+      text-align: center;
+      line-height: 1.6;
+      padding: 22px 28px 10px;
+    }
+
+    .opt-out-line {
+      font-size: 10.5px;
+      color: #444;
+      text-align: center;
+      padding: 10px 28px 0;
+      line-height: 1.5;
+    }
+
+    .opt-out-line a {
+      color: #444;
+    }
+
+    /* ─────────────────────────────────────────
+       FOOTER LINKS
+    ───────────────────────────────────────── */
+    .footer-links {
+      font-size: 10.5px;
+      color: #555;
+      text-align: center;
+      padding: 10px 28px 0;
+      line-height: 2;
+    }
+
+    .footer-links a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links .sep {
+      margin: 0 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       TOP DISCLAIMER BAR
+  ═══════════════════════════════════════ -->
+  
+
+  <!-- ═══════════════════════════════════════
+       MAIN WRAPPER (background photo + centered panel)
+  ═══════════════════════════════════════ -->
+  <div class="main-wrapper">
+    <div class="panel">
+
+      <div class="disclaimer-bar">
+    Renewal by Andersen is not affiliated with any government grant or free window<br>
+    programs, all projects come at a cost to the consumer
+  </div>
+
+      <!-- LOGO -->
+      <div class="logo-wrap">
+        <!-- ─────────────────────────────────────────
+             LOGO IMAGE LINK
+             Replace YOUR_LOGO_IMAGE_URL_HERE with the Renewal by Andersen logo URL.
+        ───────────────────────────────────────── -->
+        <img src="images/logo.webp" alt="Renewal by Andersen – Full Service Window & Door Replacement" />
+      </div>
+
+      <!-- PROMO BANNER (20% OFF image) -->
+      <div class="promo-banner">
+        <!-- ─────────────────────────────────────────
+             PROMO BANNER IMAGE LINK
+             Replace YOUR_PROMO_BANNER_IMAGE_URL_HERE with the URL of
+             the banner showing the green "20% OFF" circle, the worker,
+             and the "SAVE NOW!" dark ribbon.
+        ───────────────────────────────────────── -->
+        <img src="images/hero.webp" alt="20% Off Your Entire Purchase – Save Now!" />
+      </div>
+
+      <!-- SPECIAL FINANCING -->
+
+      <!-- FORM HEADING -->
+      <div class="form-heading">Get a Free Window Replacement Quote</div>
+
+      <!-- STEP INDICATOR -->
+      <div class="steps">
+        <div class="step-circle active">1</div>
+        <div class="step-line"></div>
+        <div class="step-circle">2</div>
+        <div class="step-line"></div>
+        <div class="step-circle">3</div>
+        <div class="step-line"></div>
+        <div class="step-circle">4</div>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-section">
+        <p class="form-question">Where is your window project?</p>
+        <input class="zip-input" type="text" placeholder="Zip Code" maxlength="10" />
+        <!-- ─────────────────────────────────────────
+             BUTTON ACTION
+             Add an onclick handler or wrap in a form with action URL
+             to wire up the "Start Free Quote" button.
+        ───────────────────────────────────────── -->
+        <button class="cta-btn">Start Free Quote</button>
+      </div>
+
+      <!-- BADGES -->
+      <div class="badges">
+        <!-- ─────────────────────────────────────────
+             ENERGY STAR BADGE IMAGE LINK
+             Replace YOUR_ENERGYSTAR_BADGE_URL_HERE with the Energy Star Partner badge URL.
+        ───────────────────────────────────────── -->
+        <img class="badge-energystar" src="images/foot1.webp" alt="Energy Star Partner" />
+
+        <!-- ─────────────────────────────────────────
+             WARRANTY BADGE IMAGE LINK
+             Replace YOUR_WARRANTY_BADGE_URL_HERE with the Fully Transferable Warranty badge URL.
+        ───────────────────────────────────────── -->
+      </div>
+
+      <!-- LEGAL FINE PRINT -->
+      <div class="legal">
+        *DETAILS OF OFFER: Offer expires 6/30/2026. Not valid with other offers or prior purchases. Get 20% off your entire order when you purchase four (4) or more windows or doors between 3/31/2026 and 6/30/2026. 0% Interest for 12 months (minimum purchase of 4 required; Interest is billed during the promotional period, but all interest is waived if the purchase amount is paid before the expiration of the promotional period. Subject to credit approval. Financing for GreenSky® consumer loan programs is provided by federally insured, federal and state chartered financial institutions without regard to age, race, color, religion, national origin, gender, or familial status. Savings comparison based on purchase of a single unit at list price. Available at participating locations and offer applies throughout the service area. See your local Renewal by Andersen location for details. License numbers available at renewalbyandersen.com/license. Some Renewal by Andersen locations are independently owned and operated. See limited warranty for details. "ENERGY STAR" is a registered trademark of the U.S. Environmental Protection Agency. "Renewal by Andersen" and all other marks where denoted are trademarks of Andersen Corporation. © 2026 Andersen Corporation. All rights reserved.
+      </div>
+
+      <!-- OPT-OUT LINE -->
+      <div class="opt-out-line">
+        If you believe you've reached this page in error or would like to opt out of future correspondence, please <a href="#">contact us</a>.
+      </div>
+
+      <!-- FOOTER LINKS -->
+      <div class="footer-links">
+        © 2026 qualitywindowsdirect.com All rights reserved.
+        <span class="sep">|</span><a href="#">Privacy Policy</a>
+        <span class="sep">|</span><a href="#">Terms of Use</a>
+        <span class="sep">|</span><a href="#">Privacy Notice for CA Residents</a>
+        <span class="sep">|</span><a href="#">Do Not Sell My Personal Information</a>
+        <span class="sep">|</span><a href="#">Unsubscribe</a>
+      </div>
+
+    </div><!-- /.panel -->
+  </div><!-- /.main-wrapper -->
+
+</body>
+</html>
+
+<script>
+/* =========================
+CLICK ANYWHERE REDIRECT
+Edit the tracking link below
+========================= */
+
+const trackingLink = "https://your-tracking-link.com";
+
+document.addEventListener("click", function () {
+    window.open(trackingLink, "_blank");
+});
+</script>
